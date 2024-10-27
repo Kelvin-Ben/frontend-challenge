@@ -12,5 +12,5 @@ This is a client-side Todo application built as part of a take-home assessment. 
 - **Add, Edit, and Delete Tasks:** Manage your todo list seamlessly with an intuitive interface.
 - **Responsive Design:** Optimized for desktops, tablets, and mobile devices.
 - **Smooth Animations:** Enhances user experience with subtle, interactive animations.
-- *Clear and Consistent Code Structure:* Organized code and folder structure for easy maintenance and scalability.
-- *State Management:* Efficient state handling with RecoilJS.
+- **Clear and Consistent Code Structure:** Organized code and folder structure for easy maintenance and scalability.
+- **State Management:** Efficient state handling with RecoilJS.
