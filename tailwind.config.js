@@ -9,6 +9,13 @@ module.exports = {
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		},
+			fontFamily: {
+        'sans': ["Public Sans", "serif",],
+      	'serif': ['ui-serif', 'Georgia',],
+      	'mono': ["Roboto Mono", "monospace",],
+      	'display': ["DM Serif Display", "serif",],
+      	'body': ["Montserrat", "sans-serif",],
+      },
   		colors: {}
   	}
   },
