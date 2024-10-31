@@ -2,12 +2,10 @@ import { useState } from "react";
 import { useThemeContext } from "../context/ThemeProvider";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
+import useTodoActions from "../hooks/useTodoActions";
 
-interface AddTodoProps {
-  addTodo: (string: string) => void;
-}
-
-const AddTodoForm: React.FC<AddTodoProps> = ({ addTodo }) => {
+const AddTodoForm = () => {
+  const { addTodo } = useTodoActions();
   const { darkMode } = useThemeContext();
   const [title, setTitle] = useState("");
 
