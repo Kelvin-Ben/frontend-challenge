@@ -1,27 +1,24 @@
+import useTodoActions from "../hooks/useTodoActions";
+import { Todo } from "@/recoil/atoms/atoms";
+import { filterTodos } from "../utils/todoUtils";
 import TodoItem from "./TodoItem";
 
-type Todo = {
-  id: number;
-  title: string;
-  completed: boolean;
-};
-interface TodoListProps {
+interface TodoListProp {
   todos: Todo[];
-  onToggleComplete: (id: number) => void;
-  deleteTodo: (id: number) => void;
+  filter: "all" | "active" | "completed";
 }
-const TodoList: React.FC<TodoListProps> = ({
-  todos,
-  onToggleComplete,
-  deleteTodo,
-}) => {
+
+const TodoList = ({ filter }: TodoListProp) => {
+  const { todos, markComplete, deleteTodo } = useTodoActions();
+  const filteredTodos = filterTodos(todos, filter);
+
   return (
     <div>
-      {todos.map((todo) => (
+      {filteredTodos.map((todo) => (
         <TodoItem
           key={todo.id}
           todo={todo}
-          markComplete={onToggleComplete}
+          markComplete={markComplete}
           deleteTodo={deleteTodo}
         />
       ))}

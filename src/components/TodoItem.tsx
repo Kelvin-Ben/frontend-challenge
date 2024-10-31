@@ -1,23 +1,14 @@
+import { Todo } from "@/recoil/atoms/atoms";
 import { DeleteIcon } from "lucide-react";
 
-type Todo = {
-  id: number;
-  title: string;
-  completed: boolean;
-};
-
-interface TodoItemProps {
+interface TodoItemsProp {
   todo: Todo;
   markComplete: (id: number) => void;
   deleteTodo: (id: number) => void;
 }
 
-const TodoItem: React.FC<TodoItemProps> = ({
-  todo,
-  markComplete,
-  deleteTodo,
-}) => {
-  const handleMarkComplete = () => {
+const TodoItem = ({ todo, markComplete, deleteTodo }: TodoItemsProp) => {
+  const handleToggleComplete = () => {
     markComplete(todo.id);
   };
 
@@ -27,15 +18,18 @@ const TodoItem: React.FC<TodoItemProps> = ({
         <input
           type="checkbox"
           checked={todo.completed}
-          onChange={handleMarkComplete}
-          className="mr-3 cursor-pointer"
+          onChange={handleToggleComplete}
+          className="mr-3 cursor-pointer appearance-none w-5 h-5 border-2 border-gray-400 rounded-full checked:bg-blue-600 checked:border-blue-600 checked:text-white checked:flex checked:items-center checked:justify-center checked:before:content-['✔'] checked:before:text-white checked:before:flex checked:before:text-xs transition-all duration-200"
         />
-        <span className={`font-mono ${todo.completed ? "line-through opacity-60" : ""}`}>
+        <span
+          className={`font-mono ${
+            todo.completed ? "line-through opacity-60" : ""
+          }`}
+        >
           {todo.title}
         </span>
       </div>
 
-      {/* Delete Icon - Visible only on hover */}
       <DeleteIcon
         className="text-gray-500 cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:text-red-400"
         onClick={() => deleteTodo(todo.id)}

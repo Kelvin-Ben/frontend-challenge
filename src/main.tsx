@@ -1,13 +1,17 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
-import { ThemeProvider } from './context/ThemeProvider.tsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { RecoilRoot } from "recoil";
 
-createRoot(document.getElementById('root')!).render(
+import "./index.css";
+import App from "./App.tsx";
+import { ThemeProvider } from "./context/ThemeProvider.tsx";
+
+createRoot(document.getElementById("root")!).render(
   <ThemeProvider>
-    <StrictMode>
-      <App />
-    </StrictMode>
+    <RecoilRoot>
+      <StrictMode>
+        <App />
+      </StrictMode>
+    </RecoilRoot>
   </ThemeProvider>
-)
+);
